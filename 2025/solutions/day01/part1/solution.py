@@ -26,11 +26,7 @@ for rotation in rotation_matches:
         raise ValueError("direction is an unexpected value")
 
     # spin the dial to its new number
-    current_pos = current_pos + rotate_count
-
-    # adjust the new position to the range of the dial (0 - 99)
-    if current_pos < 0 or current_pos > 99:
-        current_pos = current_pos % 100 # mod by 100 here because 100 on our dial is 0
+    current_pos = (current_pos + rotate_count) % 100
 
     # check this after correcting for the dial range
     if current_pos == 0:
